@@ -1,0 +1,5 @@
+﻿select bs.*,bst.* from bank_statements bs
+LEFT JOIN bank_statement_transactions bst on bs.uuid = bst.bank_statement_id
+left join applications a on a.id = bs.application_id
+where bs.status not like 'rejected'
+and a.created_at > '2019-08-01'
